@@ -3,14 +3,14 @@ const initialState = 'render here notification...'
 const notificationReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_NOTIFICATION':
-      return action.notification
+      return action.data
     case 'GET_MESSAGE':
       return state
     default: return state
   }
 }
 
-export const notificationChange = notification => {
+export const setMessage = notification => {
   return {
     type: 'SET_NOTIFICATION',
     data: notification

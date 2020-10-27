@@ -21,23 +21,25 @@ const AnecdoteList = () => {
 
   return (
     <ul>
-      {anecdotes
-        .filter(anecdote =>
-          anecdote.content.toLowerCase()
-            .includes(filter.toLowerCase()))
-        .sort((a, b) => b.votes - a.votes)
-        .map(b =>
-          <div key={b.id}>
-            <div>
-              {b.content}
+      {
+        anecdotes
+          .filter(anecdote =>
+            anecdote.content.toLowerCase()
+              .includes(filter.toLowerCase()))
+          .sort((a, b) => b.votes - a.votes)
+          .map(b =>
+            <div key={b.id}>
+              <div>
+                {b.content}
+              </div>
+              <div>
+                has {b.votes}
+                <button onClick={() => vote(b.id)}>vote</button>
+              </div>
             </div>
-            <div>
-              has {b.votes}
-              <button onClick={() => vote(b.id)}>vote</button>
-            </div>
-          </div>
-        )}
-    </ul>
+          )
+      }
+    </ul >
   )
 }
 
